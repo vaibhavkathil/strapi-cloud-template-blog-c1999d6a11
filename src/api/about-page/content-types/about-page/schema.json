@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "About Page",
+    "description": "About Us page content"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "missionStatement": {
+      "type": "text"
+    },
+    "companyStory": {
+      "type": "richtext"
+    },
+    "teamMembers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.team-member"
+    },
+    "impactStats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.impact-stat"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

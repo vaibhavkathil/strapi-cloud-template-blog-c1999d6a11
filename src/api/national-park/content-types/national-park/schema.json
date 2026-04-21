@@ -1,0 +1,107 @@
+{
+  "kind": "collectionType",
+  "collectionName": "national_parks",
+  "info": {
+    "singularName": "national-park",
+    "pluralName": "national-parks",
+    "displayName": "National Park",
+    "description": "India's national parks and wildlife sanctuaries"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "location": {
+      "type": "string"
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "Rajasthan",
+        "Uttarakhand",
+        "Assam",
+        "Madhya Pradesh",
+        "Karnataka",
+        "Kerala",
+        "Maharashtra",
+        "Gujarat",
+        "Himachal Pradesh",
+        "Uttar Pradesh",
+        "Bihar",
+        "West Bengal",
+        "Odisha",
+        "Andhra Pradesh",
+        "Telangana",
+        "Tamil Nadu",
+        "Goa",
+        "Chhattisgarh",
+        "Jharkhand",
+        "Arunachal Pradesh",
+        "Nagaland",
+        "Meghalaya",
+        "Manipur",
+        "Mizoram",
+        "Sikkim",
+        "Tripura"
+      ]
+    },
+    "mapCoordinates": {
+      "type": "json"
+    },
+    "bestTimeToVisit": {
+      "type": "string"
+    },
+    "keyWildlife": {
+      "type": "json"
+    },
+    "entryFee": {
+      "type": "decimal"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    },
+    "travelPackages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::travel-package.travel-package",
+      "mappedBy": "nationalPark"
+    },
+    "blogs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::blog.blog",
+      "mappedBy": "relatedParks"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

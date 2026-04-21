@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testimonials",
+  "info": {
+    "singularName": "testimonial",
+    "pluralName": "testimonials",
+    "displayName": "Testimonial",
+    "description": "Guest reviews and ratings"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reviewerName": {
+      "type": "string",
+      "required": true
+    },
+    "reviewerAvatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "reviewText": {
+      "type": "text",
+      "required": true
+    },
+    "rating": {
+      "type": "integer",
+      "min": 1,
+      "max": 5
+    },
+    "reviewDate": {
+      "type": "date"
+    },
+    "isVerified": {
+      "type": "boolean",
+      "default": false
+    },
+    "travelPackage": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::travel-package.travel-package",
+      "inversedBy": "testimonials"
+    },
+    "isPublished": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

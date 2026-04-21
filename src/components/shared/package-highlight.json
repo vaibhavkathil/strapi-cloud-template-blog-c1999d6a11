@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_package_highlights",
+  "info": {
+    "name": "PackageHighlight",
+    "displayName": "Package Highlight",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog",
+    "description": "Field journal entries and editorial content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "excerpt": {
+      "type": "text",
+      "maxLength": 160
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": ["Guides", "Wildlife", "Conservation", "Travel Tips"]
+    },
+    "tags": {
+      "type": "json"
+    },
+    "authorName": {
+      "type": "string"
+    },
+    "authorAvatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "publishDate": {
+      "type": "date"
+    },
+    "readingTime": {
+      "type": "integer"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "relatedParks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::national-park.national-park",
+      "inversedBy": "blogs"
+    },
+    "relatedPackages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::travel-package.travel-package",
+      "inversedBy": "blogs"
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
