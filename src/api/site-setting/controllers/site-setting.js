@@ -1,3 +1,3 @@
 'use strict';
 const { createCoreController } = require('@strapi/strapi').factories;
-module.exports = createCoreController('api::site-settings.site-setting');
+module.exports = createCoreController('api::site-setting.site-setting');
